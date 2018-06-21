@@ -33,3 +33,4 @@ def send(args):
 connect()
 receive()
 s.close()
+#ticcker
