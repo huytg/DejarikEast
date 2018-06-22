@@ -47,10 +47,10 @@ def menu():
             conn.close()
             s.close()
             sys.exit()
+        print (cmd)
         command = conn.send(cmd)
         result = conn.recv(16834)
-        if result <> hostname:
-            print (result)
+        print(result)
 
 def main():
     socketCreate()
