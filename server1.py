@@ -48,9 +48,8 @@ def menu():
             s.close()
             sys.exit()
         print (cmd)
-        command = conn.send(cmd)
-        result = conn.recv(16834)
-        print(result)
+        conn.send(cmd)
+        print(conn.recv(16834))
 
 def main():
     socketCreate()
