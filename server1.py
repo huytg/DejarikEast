@@ -44,6 +44,7 @@ def menu():
     while 1:
         cmd = raw_input(str(addr[0])+'@' + str(hostname) + '> ')
         if cmd == 'quit':
+            conn.send(cmd)
             conn.close()
             s.close()
             sys.exit()
