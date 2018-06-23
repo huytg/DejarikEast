@@ -6,7 +6,7 @@ def createSocket():
     global port
     global s
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    port = 5558
+    port = 443
     host = ('10.8.101.16')
 
 def connect():
@@ -23,7 +23,7 @@ def connect():
 
 def receive():
     hasQuit = False
-    received = s.recv(100024)
+    received = s.recv(1024)
     print 'receive: %s'%(receive)
     if received[0:4] == ('quit'):
         hasQuit = True
