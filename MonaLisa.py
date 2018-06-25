@@ -7,7 +7,7 @@ def createSocket():
     global s
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     port = 22
-    host = ('10.8.101.16')
+    host = ('10.8.101.56')
 
 def connect():
     try:
